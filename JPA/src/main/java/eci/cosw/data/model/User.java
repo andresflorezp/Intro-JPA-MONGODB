@@ -1,7 +1,8 @@
 package eci.cosw.data.model;
 
 import org.springframework.data.annotation.Id;
-
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document
 public class User {
 
     @Id
@@ -52,6 +53,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+	}
     
+	
     
 }

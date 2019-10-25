@@ -1,14 +1,18 @@
 package eci.cosw.data.model;
 
+import java.util.Date;
+
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Todo {
-	
+	@Id
+	private ObjectId TodoId;
 	private String description;
 	private Integer priority;
-	private String dueDate;
+	private Date dueDate;
 	private String responsible;
 	private String status;
 	
@@ -16,7 +20,7 @@ public class Todo {
 	public Todo() {
 		super();
 	}
-	public Todo(String description, Integer priority, String dueDate, String responsible, String status) {
+	public Todo(String description, Integer priority, Date dueDate, String responsible, String status) {
 		super();
 		this.description = description;
 		this.priority = priority;
@@ -36,10 +40,10 @@ public class Todo {
 	public void setPriority(Integer priority) {
 		this.priority = priority;
 	}
-	public String getDueDate() {
+	public Date getDueDate() {
 		return dueDate;
 	}
-	public void setDueDate(String dueDate) {
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 	public String getResponsible() {
@@ -54,6 +58,12 @@ public class Todo {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	@Override
+	public String toString() {
+		return "Todo [TodoId=" + TodoId + ", description=" + description + ", priority=" + priority + ", dueDate="
+				+ dueDate + ", responsible=" + responsible + ", status=" + status + "]";
+	}
+	
 	
 	
 }
